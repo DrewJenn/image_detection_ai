@@ -1,0 +1,1 @@
+This folder and beyond was not my work. I had to slightly modify the labelimg app so it would work within the same environment.
