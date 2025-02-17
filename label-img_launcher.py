@@ -1,12 +1,12 @@
 import subprocess 
 import os
+from utils import main_helper_functions as helper
 
 file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data')
 image_path = os.path.join(file_path, 'Transformed_Images')
 annotation_path = os.path.join(file_path, 'annotations')
 
-print("Please input the name of the AI we are annotating the data for: ")
-ai_project = input()
+ai_project = helper.file_selection(image_path)
 
 command = [('cd ' + os.path.join(file_path, 'launch_package')) + '\nmake qt5py3' + '\npython3 labelImg.py' + ' ' + os.path.join(image_path, ai_project)]     
 try:
