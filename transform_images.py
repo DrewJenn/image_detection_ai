@@ -1,5 +1,6 @@
 import os
 from PIL import Image
+from utils import main_helper_functions as helper
 
 resize_to = (800, 800)
 
@@ -19,10 +20,9 @@ def resize_images(input_file_path, output_file_path):
     print("Resizing complete!")
 
 
-script_dir = os.path.dirname(os.path.abspath(__file__))
-file_path = os.path.join(script_dir, "data")
-print("Please input the name of the folder we are transforming: ")
-folder_name = input()
+file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
+folder_name = helper.file_selection(os.path.join(file_path, 'images'))
+
 if not os.path.exists(os.path.join(os.path.join(file_path, 'Transformed_Images'), folder_name)):
     os.makedirs(os.path.join(os.path.join(file_path, 'Transformed_Images'), folder_name))
     os.makedirs(os.path.join(os.path.join(file_path, 'annotations'), folder_name))
