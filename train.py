@@ -6,13 +6,14 @@ from models.backbone import CustomBackboneWithHead
 from pathlib import Path
 
 
-print("Please input the folder name of the model we are currently working with: ")
-model_folder = input()
-
 script_dir = Path(__file__).parent  
 
 image_folder = script_dir / "data" / "Transformed_Images"
 annotations_folder = script_dir / "data" / "annotations"
+
+model_folder = helper.file_selection(annotations_folder).split('/')[-1]
+
+
 trained_model = script_dir / "trained_models"
 model_filename = model_folder + ".pth"
 
