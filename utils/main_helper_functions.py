@@ -114,3 +114,21 @@ def getDetector(image_folder_path, annotations_folder_path):
 
 def spaceoutLogic():
     print('\n\n')
+
+
+
+def file_selection(file_path):
+    try:
+        folders = [f for f in os.listdir(file_path) if os.path.isdir(os.path.join(file_path, f))]
+    except FileNotFoundError:
+        print(f"The directory {file_path} was not found.")
+        return None
+    except PermissionError:
+        print(f"Permission denied to access {file_path}.")
+        return None
+    
+    for i in range(len(folders)):
+        print("please slect the corresponding number for the AI training dataset you wish to use.")
+        print(str((i + 1)) + ": " + folders[i])
+    user_selection = int(input())
+    return (folders[user_selection - 1])
