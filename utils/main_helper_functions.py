@@ -126,9 +126,9 @@ def file_selection(file_path):
     except PermissionError:
         print(f"Permission denied to access {file_path}.")
         return None
-    
+        
+    print("please slect the corresponding number for the training dataset you wish to use.")
     for i in range(len(folders)):
-        print("please slect the corresponding number for the training dataset you wish to use.")
         print(str((i + 1)) + ": " + folders[i])
     user_selection = int(input())
     return (folders[user_selection - 1])
