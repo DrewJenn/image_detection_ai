@@ -44,10 +44,6 @@ def compute_loss(pred_class_logits, pred_bbox_preds, target_class, target_bbox):
     print("Predicted Bounding Boxes (Normalized):")
     print(pred_bbox_preds)
     spaceoutLogic()
-    """
-    prediction logits: (Cross entropy position 1) 1D tensor([[-0.2446,  0.0533]],
-    grad_fn=<AddmmBackward0>)target class: ?  tensor([1])
-    """
     class_loss = nn.CrossEntropyLoss()(pred_class_logits, target_class)
     spaceoutLogic()
     bbox_loss = nn.SmoothL1Loss()(pred_bbox_preds, target_bbox)
